@@ -1,0 +1,83 @@
+/* Colors */
+$black: #171123;
+$black-dark: #080819;
+$black-light: #1f1c29;
+
+$white: #ffffff;
+$white-dark: #f1f0fb;
+$white-light: #f6f6fb;
+
+$blue: #6A7CBE;
+$blue-dark: #404AA4;
+$blue-light: #8AA1D2;
+
+$orange: #CAA466;
+$orange-dark: #B5803D;
+$orange-light: #f8e1b0;
+
+$green: #5B7D39;
+$green-dark: #374B22;
+$green-light: #76A34A;
+
+$brand: #1864DA;
+$brand-dark: #0f479b;
+$brand-light: #4787e8;
+
+$red: #c25020;
+$red-dark: #a64319;
+$red-light: #d75d29;
+
+$mint: #C3D5AD;
+$mint-dark: #576d3c;
+$mint-light: #D5E2C6;
+
+$gray: #DBD7E1;
+$gray-dark: #CDC7D5;
+$gray-light: #E6E3EA;
+
+/* Borders */
+$border: 1px solid rgba($black, 0.1);
+
+/* Fonts */
+$font-family-main: 'Noto Sans', sans-serif;
+$font-size-xxs: 10px;
+$font-size-base: 12px;
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 20px;
+$font-size-xl: 30px;
+$font-size-xxl: 50px;
+$font-size-max: 60px;
+$font-size-mega: 130px;
+
+$multiplier: 1.4;
+$multiplier-sm: 1.14;
+
+/* Border-radius */
+$br-xs: 0.1rem;
+$br-sm: 0.2rem;
+$br-md: 0.4rem;
+$br-lg: 0.8rem;
+$br-xl: 1.6rem;
+$br-xxl: 3.2rem;
+
+/* Spacing */
+$spacing-xxxs: 0.2rem;
+$spacing-xxs: 0.4rem;
+$spacing-xs: .85rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 4rem;
+$spacing-xl: 8rem;
+$spacing-xxl: 16rem;
+
+/* Widths */
+$width-sm: 30rem;
+$width-md: 50rem;
+$width-lg: 70rem;
+$width-xl: 90rem;
+
+/* Shadows */
+$main-shadow: 0px 3px 5px rgba($brand, 0.05), 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 4px 4px rgba($brand, 0.02);
+$soft-shadow: 0px 1px 1px rgba($brand, 0.15), 0px 2px 2px rgba($brand, 0.05), 0px 10px 10px rgba(0, 0, 0, 0.01);
