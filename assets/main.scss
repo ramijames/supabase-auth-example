@@ -1,0 +1,581 @@
+@import './_variables';
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: $font-family-main;
+    background-color: $white;
+    font-size: $font-size-sm;
+}
+
+#__nuxt {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.inner-container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    color: $black;
+
+    @media (max-width: 1000px) {
+        margin: 0;
+    }
+}
+
+.max-width {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    &.xl {
+        max-width: 1600px;
+    }
+
+    &.lg {
+        max-width: 1200px;
+    }
+
+    &.md {
+        max-width: 800px;
+    }
+
+    &.sm {
+        max-width: 600px;
+    }
+}
+
+.max-height {
+    height: 100%;
+}
+
+.scrollable {
+    overflow-y: auto;
+    max-height: 100%;
+
+    &.has-wizard {
+        max-height: calc(100% - 85px);
+    }
+}
+
+/* Notifications */
+
+.notification {
+    padding: $spacing-sm $spacing-md;
+    border-radius: $br-md;
+    color: $brand;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.info {
+        background: rgba($brand, 0.05);
+        color: $black-light;
+    }
+
+    &.warning {
+        background: rgba($orange, 0.05);
+        color: $orange-dark;
+    }
+
+    &.success {
+        background: rgba($mint, 0.1);
+        color: $mint-dark;
+    }
+
+    &.error {
+        background: rgba($red, 0.05);
+        color: $red;
+    }
+
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    justify-content: center;
+    align-items: center;
+    padding: $spacing-md 0;
+
+    * {
+        margin: 0;
+    }
+}
+
+/* Popups */
+
+.popup {
+    position: absolute;
+    top: calc(100% + 2px);
+    z-index: 1000;
+    display: none;
+    background-color: $white;
+    box-shadow: 0 0 10px rgba($black, 0.1);
+    padding: $spacing-sm;
+    border-radius: $br-md;
+    border: 1px solid rgba($black, 0.2);
+
+    &.clean {
+        box-shadow: none;
+        padding: 0;
+        border: none;
+    }
+
+    &.list {
+        width: 240px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: $spacing-xs;
+            padding: $spacing-xs $spacing-xs;
+            border-radius: $br-md;
+            text-transform: capitalize;
+            transition: background-color 0.18s ease;
+            color: $black;
+            font-size: $font-size-sm;
+            font-family: $font-family-main;
+            font-weight: 400;
+            text-decoration: none;
+
+            &:hover {
+                background-color: rgba($brand, 0.05);
+                color: $brand;
+            }
+
+            &.active {
+                background-color: rgba($brand, 1);
+                color: $white;
+            }
+        }
+    }
+
+    &.right {
+        right: 0;
+    }
+
+    &.left {
+        left: 0;
+    }
+}
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: $font-family-main;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: $font-size-xl;
+    margin: $spacing-md 0;
+}
+
+h2 {
+    font-size: $font-size-lg;
+    margin: $spacing-md 0;
+}
+
+h3 {
+    font-size: $font-size-md;
+    margin: 0 0 $spacing-sm 0;
+}
+
+h4 {
+    font-size: $font-size-sm;
+    margin: $spacing-md 0;
+}
+
+h5 {
+    font-size: $font-size-sm;
+    margin: $spacing-md 0;
+}
+
+p {
+    margin: 0 0 $spacing-sm 0;
+    line-height: 1.5;
+}
+
+p.details {
+    color: rgba($black, 0.5);
+    font-size: $font-size-xs;
+}
+
+p.or-select {
+    margin: $spacing-md 0;
+    color: rgba($black, 0.5);
+    font-size: $font-size-xxs;
+    width: 100%;
+    text-align: center;
+    position: relative;
+
+    &:before {
+        width: 35%;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        border-top: 1px solid rgba($black, 0.1);
+    }
+
+    &:after {
+        width: 35%;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        border-top: 1px solid rgba($black, 0.1);
+    }
+}
+
+pre {
+    background-color: rgba($black, 0.1);
+    padding: $spacing-sm;
+    margin: 0 0 $spacing-md 0;
+    overflow-x: auto;
+    max-height: 400px;
+    font-size: $font-size-xs;
+}
+
+/* Table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 $spacing-md 0;
+}
+
+th {
+    text-align: left;
+    padding: $spacing-xs;
+    border-bottom: 1px solid rgba($black, 0.1);
+}
+
+td {
+    padding: $spacing-xs;
+    border-bottom: 1px solid rgba($black, 0.1);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Forms */
+
+label {
+    display: block;
+    font-size: $font-size-xs;
+    color: rgba($black,0.5);
+    font-weight: 400;
+    background-color: $white;
+    padding: calc($spacing-xxs + 2px) $spacing-xs 0 $spacing-xs;
+}
+
+input,
+textarea,
+select {
+    border: 1px solid transparent;
+    padding: 0 $spacing-xs calc($spacing-xxs + 2px) $spacing-xs;
+    background-color: $white;
+    color: $black;
+    border-radius: $br-md;
+    font-size: $font-size-sm;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    font-family: $font-family-main;
+    width:  100%;
+}
+
+    select {
+        -moz-appearance:none;
+        -webkit-appearance:none;
+        appearance:none;
+        background-image: url('/icons/down-arrow.svg');
+        background-repeat: no-repeat;
+        background-position: right .5em top 50%, 0 0;
+    }
+
+input:focus,
+textarea:focus,
+select:focus,
+input:hover,
+textarea:hover,
+select:hover {
+    outline: none;
+}
+
+input[disabled] {
+    color: rgba($black, 0.65);
+    background-color: rgba($orange, 0.05);
+    cursor: not-allowed;
+}
+
+textarea {
+    width: 100%;
+    margin: 0 0 $spacing-sm 0;
+}
+
+.form-group {
+    margin: 0 0 $spacing-sm 0;
+    position: relative;
+
+    div {
+        position: relative;
+    }
+}
+
+.form-input {
+    border: 1px solid rgba($brand, 0.3);
+    border-radius: $br-md;
+    margin-bottom: $spacing-sm;
+    transition: all 0.2s ease;
+    width: 100%;
+    overflow: hidden;
+    height: fit-content;
+    outline: 1px solid rgba($brand, 0);
+    position: relative;
+
+    .button {
+        position: absolute;
+        right: $spacing-sm;
+        top: $spacing-sm;
+        bottom: $spacing-sm;
+        background-color: rgba($brand, 0.1);
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: rgba($brand, 0.2);
+        }
+    }
+
+    &:focus,
+    &:hover,
+    &:focus-within,
+    &:active {
+        border: 1px solid rgba($brand, 0.9);
+        outline: 4px solid rgba($brand, 0.3);
+    }
+}
+
+.form-input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-md;
+    width: 100%;
+}
+
+.form-block {
+    padding: 0 0 $spacing-md 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: $spacing-lg;
+    height: 100%;
+
+    &:last-of-type {
+        border-bottom: none;
+    }
+
+    .form-details {
+        width: 33%;
+
+        h4 {
+            margin: 0 0 $spacing-xs 0;
+        }
+    }
+    
+    .form-content {
+        width: 66%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .vc-container {
+            align-self: flex-end;
+        }
+    }
+
+    .form-content-full {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        h4 {
+            margin: 0 0 $spacing-xs 0;
+        }
+    }
+}
+
+.form-group-footer {
+    padding: $spacing-md 0;
+}
+
+.form-errors {
+    margin: 0 0 $spacing-md 0;
+    padding: $spacing-sm;
+    border: 1px solid rgba($red, 0.1);
+    border-radius: $br-md;
+    background-color: rgba($red, 0.05);
+    color: $red;
+    font-size: $font-size-sm;
+    transition: all 0.2s ease;
+}
+
+.form-error {
+    color: $white;
+    background-color: rgba($red, 1);
+    padding: $spacing-xxs $spacing-xs;
+    border-radius: $br-sm;
+    font-size: $font-size-xs;
+    margin: -$spacing-xs 0;
+    display: inline-block;
+    position: absolute;
+    top:0;
+    right:0;
+}
+
+/* Button */
+
+button,
+.button {
+    color: $black;
+    background: rgba($white, .35);
+    border-radius: $br-md;
+    border: $border;
+    text-align: center;
+    text-decoration: none;
+    padding: $spacing-xxxs $spacing-sm;
+    cursor: pointer;
+    font-size: $font-size-xs;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    font-family: $font-family-main;
+    display: flex;
+    justify-content: center;
+    gap: calc($spacing-xs - 2px);
+    align-items: center;
+    text-transform: capitalize;
+    min-height: 24px;
+
+    &:hover {
+        border: 1px solid rgba($brand, 0.4);
+        background: rgba($brand, 0);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background: rgba($black, 0.1);
+        color: rgba($black, 0.5);
+    }
+}
+
+button.large,
+.button.large {
+    padding: $spacing-sm $spacing-md;
+}
+
+button.wide,
+.button.wide {
+    padding: $spacing-xs;
+    width: 100%;
+}
+
+button.primary,
+.button.primary {
+    border: 1px solid rgba($brand-dark, 0.3);
+    background-color: rgba($brand, 0.85);
+    color: $white;
+    outline: 1px solid rgba($brand, 0.4);
+    outline-offset: 0px;
+
+    &:hover {
+        border: 1px solid rgba($brand-dark, 1);
+        background-color: rgba($brand, 0.95);
+        outline: 4px solid rgba($brand, 0.3);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background: rgba($black, 0.1);
+        color: rgba($black, 0.5);
+        outline: none;
+    }
+}
+
+button.green,
+.button.green {
+    border: 1px solid rgba($mint-dark, 0.3);
+    background-color: rgba($mint, 0.75);
+    color: $black;
+
+    &:hover {
+        border: 1px solid rgba($mint-dark, 1);
+        background-color: rgba($mint, 1);
+    }
+}
+
+button.red,
+.button.red {
+    border: 1px solid rgba($red-dark, 0.3);
+    background-color: rgba($red, 0.05);
+    color: $red;
+    outline-color: rgba($red, 0.4);
+
+    &:hover {
+        border: 1px solid rgba($red-dark, 1);
+        background-color: rgba($red, 0.1);
+        outline: 4px solid rgba($red, 0.3);
+    }
+}
+
+button.vertical,
+.button.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    small {
+        font-size: $font-size-xxs;
+        color: rgba($black, 0.5);
+    }
+}

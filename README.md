@@ -2,9 +2,17 @@
 
 The auth example that Supabase provides isn't actually a good solution. When building off of it, I found that I was having intermittent session expirations. It gives a solid base for understanding the basics of what Supabase is, and how their system works, but it does not provide developers with a best-practice that they can use to build their own projects.
 
-This template project is intended to do that.
+This template project is intended to do that. 
 
-It uses Nuxt 3's [Supabase module](https://supabase.nuxtjs.org/get-started).
+It uses these Nuxt 3 modules:
+
+- [Supabase module](https://supabase.nuxtjs.org/get-started)
+- [Google Fonts](https://google-fonts.nuxtjs.org/)
+
+Sass is also installed. There are two main assets:
+
+- **_variables.scss** - A standardized set of colors, spacing, font-sizes, etc.
+- **main.scss** - A standardized set of html elements that I consistently use across my projects which includes basic typography, buttons, forms and inputs, tables, etc.
 
 ## Getting started
 
