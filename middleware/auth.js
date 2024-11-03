@@ -9,7 +9,7 @@ export default defineNuxtRouteMiddleware(() => {
   if (magiclink === true) {
     return navigateTo("/confirm");
   } else if (user.value) {
-    return navigateTo("/secure")
+    return navigateTo("/app")
   }
   
 })

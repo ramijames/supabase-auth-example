@@ -15,7 +15,7 @@ watch(user, () => {
       // Clear cookie
       useCookie(`${cookieName}-redirect-path`).value = null
       // Redirect to path
-      return navigateTo(redirectPath || '/secure'); 
+      return navigateTo(redirectPath || '/app'); 
   }
 }, { immediate: true })
 </script>

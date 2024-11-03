@@ -43,7 +43,10 @@
 
 definePageMeta({
   middleware: ["auth"],
+  layout: "auth",
 })
+
+
 
 const loading = ref(false);
 const notification = ref('');

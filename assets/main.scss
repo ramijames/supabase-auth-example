@@ -605,6 +605,20 @@ button.blue,
     }
 }
 
+button.clear,
+.button.clear {
+    border: 1px solid rgba($white, 0.3);
+    background-color: rgba($blue, 0.05);
+    color: $white;
+    outline-color: rgba($white, 0.4);
+
+    &:hover {
+        border: 1px solid rgba($white, 1);
+        background-color: rgba($blue, 0.1);
+        outline: 4px solid rgba($white, 0.2);
+    }
+}
+
 button.green,
 .button.green {
     border: 1px solid rgba($mint-dark, 0.3);
