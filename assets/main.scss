@@ -1,4 +1,4 @@
-@import './_variables';
+@import '/assets/_variables.scss';
 
 html,
 body {
@@ -7,6 +7,13 @@ body {
     font-family: $font-family-main;
     background-color: $white;
     font-size: $font-size-sm;
+
+    main {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
 }
 
 #__nuxt {
@@ -80,6 +87,52 @@ body,
     &.has-wizard {
         max-height: calc(100% - 85px);
     }
+}
+
+/* Colors */
+
+.brand {
+    color: $brand;
+}
+
+.black {
+    color: $black;
+}
+
+.black-light {
+    color: $black-light;
+}
+
+.white {
+    color: $white;
+}
+
+.blue {
+    color: $blue;
+}
+
+.red {
+    color: $red;
+}
+
+.mint {
+    color: $mint;
+}
+
+.orange {
+    color: $orange;
+}
+
+.green {
+    color: $green;
+}
+
+.gray {
+    color: $gray-dark;
+}
+
+.description {
+    color: rgba($black, 0.5);
 }
 
 /* Notifications */
@@ -198,31 +251,27 @@ h4,
 h5 {
     font-family: $font-family-main;
     font-weight: 500;
+    margin: $spacing-lg 0 $spacing-sm 0;
 }
 
 h1 {
     font-size: $font-size-xl;
-    margin: $spacing-md 0;
 }
 
 h2 {
     font-size: $font-size-lg;
-    margin: $spacing-md 0;
 }
 
 h3 {
     font-size: $font-size-md;
-    margin: 0 0 $spacing-sm 0;
 }
 
 h4 {
     font-size: $font-size-sm;
-    margin: $spacing-md 0;
 }
 
 h5 {
     font-size: $font-size-sm;
-    margin: $spacing-md 0;
 }
 
 p {
@@ -244,7 +293,7 @@ p.or-select {
     position: relative;
 
     &:before {
-        width: 35%;
+        width: 45%;
         content: '';
         display: block;
         position: absolute;
@@ -254,7 +303,7 @@ p.or-select {
     }
 
     &:after {
-        width: 35%;
+        width: 45%;
         content: '';
         display: block;
         position: absolute;
@@ -542,15 +591,31 @@ button.primary,
     }
 }
 
+button.blue,
+.button.blue {
+    border: 1px solid rgba($blue-dark, 0.3);
+    background-color: rgba($blue, 0.05);
+    color: $blue-dark;
+    outline-color: rgba($blue, 0.4);
+
+    &:hover {
+        border: 1px solid rgba($blue-dark, 1);
+        background-color: rgba($blue, 0.1);
+        outline: 4px solid rgba($blue, 0.2);
+    }
+}
+
 button.green,
 .button.green {
     border: 1px solid rgba($mint-dark, 0.3);
-    background-color: rgba($mint, 0.75);
-    color: $black;
+    background-color: rgba($mint, 0.05);
+    color: $mint-dark;
+    outline-color: rgba($mint, 0.4);
 
     &:hover {
         border: 1px solid rgba($mint-dark, 1);
-        background-color: rgba($mint, 1);
+        background-color: rgba($mint, 0.1);
+        outline: 4px solid rgba($mint, 0.3);
     }
 }
 

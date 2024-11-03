@@ -8,6 +8,7 @@ It uses these Nuxt 3 modules:
 
 - [Supabase module](https://supabase.nuxtjs.org/get-started)
 - [Google Fonts](https://google-fonts.nuxtjs.org/)
+- [Icon](https://icones.js.org/)
 
 Sass is also installed. There are two main assets:
 
@@ -19,6 +20,12 @@ Sass is also installed. There are two main assets:
 You'll need to add an .env file after you've created your Supabase project. I've provided a template with .env.example
 
 You can find your specific details in the Home Dashboard, under the "Connect" button on the top-right of the screen. Select Nuxt from the App Frameworks section.
+
+### Github OAuth integration
+
+The first OAuth app which is integrated into this demo is Github. To use this, you'll need to go to the [Developer Settings page](https://github.com/settings/developers), and create a new app.
+
+
 
 ## Database setup
 
