@@ -1,4 +1,4 @@
-@import '/assets/_variables.scss';
+@use 'assets/variables' as *;
 
 html,
 body {

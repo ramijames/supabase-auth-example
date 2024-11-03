@@ -5,7 +5,7 @@
       <p class="description">Connect with your oAuth account.</p>
       <section id="LoginForm" class="form-group">
         <div class="login-buttons">
-          <button class="button large">
+          <button class="button large" @click="signInWithGithub">
             <Icon name="grommet-icons:github" size="2rem" />
             Login with GitHub
           </button>
@@ -15,7 +15,7 @@
           </button> -->
         </div>
         <p class="or-select">Or</p>
-        <form class="magic-link-form" @submit.prevent="handleMagicLinkLogin">
+        <form class="magic-link-form" @submit.prevent="signInWithMagicLink">
           <div v-if="notification == ''">
               <p class="description">Access the app via magic link with just your email.</p>
               <div class="form-group">
@@ -53,7 +53,25 @@ const reset = () => {
     notification.value = ""
 }
 
-const handleMagicLinkLogin = async () => {
+// const handleGithubLogin = async () => {
+//     try {
+//         loading.value = true
+//         const { error } = await supabase.auth.signInWithOtp({ provider: 'github' })
+//         if (error) throw error
+//     } catch (error) {
+//         errorbox.value = error.error_description || error.message
+//     } finally {
+//         loading.value = false
+//     }
+// }
+
+async function signInWithGithub() {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'github',
+  })
+}
+
+const signInWithMagicLink = async () => {
     try {
         loading.value = true
         const { error } = await supabase.auth.signInWithOtp({ email: email.value })
@@ -70,7 +88,7 @@ const handleMagicLinkLogin = async () => {
 
 <style scoped lang="scss">
   
-  @import 'assets/_variables.scss';
+@use 'assets/variables' as *;
 
 #Login {
   display: flex;
