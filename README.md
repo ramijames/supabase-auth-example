@@ -1,8 +1,8 @@
+![]
+
 # Supabase Auth Example
 
-The auth example that Supabase provides isn't actually a good solution. When building off of it, I found that I was having intermittent session expirations. It gives a solid base for understanding the basics of what Supabase is, and how their system works, but it does not provide developers with a best-practice that they can use to build their own projects.
-
-This template project is intended to do that. 
+This template project is intended to provide a best-practice example for setting up Supabase auth. 
 
 It uses these Nuxt 3 modules:
 
@@ -67,3 +67,5 @@ These are located in Supabase under **Authentication > Configuration > Email Tem
 This allows the auth.js middleware to differentiate between OAuth and the Magic Link.
 
 ## Database setup
+
+Since this example currently only uses Supabase authentication, there is no database setup required.

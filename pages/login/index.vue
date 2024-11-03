@@ -54,10 +54,6 @@ const supabase = useSupabaseClient();
 
 const user = useSupabaseUser();
 
-console.log('magic link user:', user)
-
-// https://dumiidynefgwjqrdpjzg.supabase.co/auth/v1/verify?token=pkce_40ef39c9af453488b817c21208729750bfc0a58ad62db3951775bcd2&type=magiclink&redirect_to=http://localhost:3000/
-
 const reset = () => {
     errorbox.value = ""
     notification.value = ""
