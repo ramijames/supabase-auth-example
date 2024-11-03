@@ -29,16 +29,41 @@ The first OAuth app which is integrated into this demo is Github. To use this, y
 
 Inside the app you've just created, you'll see a client ID which you'll have to copy over to Supabase. Besides this, you'll have to generate a client secret, which will be copied alongside this.
 
-Inside of Supabase, you'll have to navigate to Authentication > Configuration > Providers and scroll down to Github. In here you'll be inputting your client ID and secret.
+Inside of Supabase, you'll have to navigate to **Authentication > Configuration > Providers** and scroll down to Github. In here you'll be inputting your client ID and secret.
 
 There is a Callback URL here, which you'll need to go back to Github's OAuth app and input in the App in Developer Settings.
 
 That's it. Your user can now connect to your Supabase app with Github.
 
-## Database setup
+### Magic Link integration
 
-
-
-## Authentication emails
+You won't be able to use Magic Links unless you set up SMTP to send emails with your own service.
 
 Supabase now limits authentication emails so that they are only sent to organization members' email addresses. You'll have to set up a custom SMTP provider to handle flows like password reset which require sending emails to any user. I used Google Workspace for this and [provide an how-to on my website](https://www.ramijames.com/thoughts/supabase-email-authentication-with-google-workspace).
+
+If you are getting "Error: AuthApiError: Error sending confirmation email" errors in your console, you haven't set up SMTP correctly.
+
+To get this demo to recognize Magic Links, you'll have to append a url parameter to the emails that Supabase sends out.
+
+These are located in Supabase under **Authentication > Configuration > Email Templates**.
+
+#### Confirm Signup email template
+
+```html
+<h2>Confirm your signup</h2>
+
+<p>Follow this link to confirm your user:</p>
+<p><a href="{{ .ConfirmationURL }}login?magiclink=true">Confirm your mail</a></p>
+```
+
+#### Magic Link email template
+```html
+<h2>Magic Link</h2>
+
+<p>Follow this link to login:</p>
+<p><a href="{{ .ConfirmationURL }}login?magiclink=true">Log In</a></p>
+```
+
+This allows the auth.js middleware to differentiate between OAuth and the Magic Link.
+
+## Database setup

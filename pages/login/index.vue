@@ -52,6 +52,12 @@ const email = ref('');
 
 const supabase = useSupabaseClient();
 
+const user = useSupabaseUser();
+
+console.log('magic link user:', user)
+
+// https://dumiidynefgwjqrdpjzg.supabase.co/auth/v1/verify?token=pkce_40ef39c9af453488b817c21208729750bfc0a58ad62db3951775bcd2&type=magiclink&redirect_to=http://localhost:3000/
+
 const reset = () => {
     errorbox.value = ""
     notification.value = ""
@@ -69,11 +75,16 @@ async function signInWithGithub() {
 const signInWithMagicLink = async () => {
     try {
         loading.value = true
-        const { error } = await supabase.auth.signInWithOtp({ email: email.value })
+        const { error } = await supabase.auth.signInWithOtp({ 
+          email: email.value,
+          options: {
+            redirectTo: '/confirm',
+          } })
         if (error) throw error
         notification.value = "Check your email for the magic link"
     } catch (error) {
         errorbox.value = error.error_description || error.message
+        console.log('Error:', error)
     } finally {
         loading.value = false
     }
