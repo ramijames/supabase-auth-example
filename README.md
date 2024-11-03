@@ -15,6 +15,8 @@ Sass is also installed. There are two main assets:
 - **_variables.scss** - A standardized set of colors, spacing, font-sizes, etc.
 - **main.scss** - A standardized set of html elements that I consistently use across my projects which includes basic typography, buttons, forms and inputs, tables, etc.
 
+For this demo, you'll need to have a [Supabase](https://supabase.com) account, and have created an app there.
+
 ## Getting started
 
 You'll need to add an .env file after you've created your Supabase project. I've provided a template with .env.example
@@ -23,9 +25,15 @@ You can find your specific details in the Home Dashboard, under the "Connect" bu
 
 ### Github OAuth integration
 
-The first OAuth app which is integrated into this demo is Github. To use this, you'll need to go to the [Developer Settings page](https://github.com/settings/developers), and create a new app.
+The first OAuth app which is integrated into this demo is Github. To use this, you'll need to go to the [Github Developer Settings page](https://github.com/settings/developers), and create a new app.
 
+Inside the app you've just created, you'll see a client ID which you'll have to copy over to Supabase. Besides this, you'll have to generate a client secret, which will be copied alongside this.
 
+Inside of Supabase, you'll have to navigate to Authentication > Configuration > Providers and scroll down to Github. In here you'll be inputting your client ID and secret.
+
+There is a Callback URL here, which you'll need to go back to Github's OAuth app and input in the App in Developer Settings.
+
+That's it. Your user can now connect to your Supabase app with Github.
 
 ## Database setup
 

@@ -41,6 +41,10 @@
 
 <script setup>
 
+definePageMeta({
+  middleware: ["auth"],
+})
+
 const loading = ref(false);
 const notification = ref('');
 const errorbox = ref('');
@@ -53,22 +57,13 @@ const reset = () => {
     notification.value = ""
 }
 
-// const handleGithubLogin = async () => {
-//     try {
-//         loading.value = true
-//         const { error } = await supabase.auth.signInWithOtp({ provider: 'github' })
-//         if (error) throw error
-//     } catch (error) {
-//         errorbox.value = error.error_description || error.message
-//     } finally {
-//         loading.value = false
-//     }
-// }
-
 async function signInWithGithub() {
-  const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: 'github',
-  })
+  const { data, error } = await supabase.auth.signInWithOAuth(
+    { provider: 'github', 
+      options: {
+        redirectTo: 'http://localhost:3000/confirm',
+      },
+     })
 }
 
 const signInWithMagicLink = async () => {
