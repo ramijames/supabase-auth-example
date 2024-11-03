@@ -1,4 +1,4 @@
-![]
+![https://github.com/ramijames/supabase-auth-example/blob/main/public/screenshot.png?raw=true](Preview)
 
 # Supabase Auth Example
 
